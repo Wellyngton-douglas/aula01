@@ -15,5 +15,5 @@ class ProdutoAdmin(admin.ModelAdmin):
 
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ("nome", "cpf")
+    list_display = ("nome", "cpf", "email_cliente")
     list_filter = ("nome",)
