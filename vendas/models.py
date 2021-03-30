@@ -14,6 +14,8 @@ class Venda(models.Model):
     email_cliente = models.EmailField(null=True, blank=True)
     venda_concluida = models.BooleanField(null=False, blank=False)
     qtd_itens = models.IntegerField(null=False, blank=True, default=0)
+    produtos = models.ManyToManyField('Produto')
+    cliente = models.ForeignKey('Cliente', on_delete=models.DO_NOTHING, default=1, verbose_name='Cliente')
 
     def __str__(self):
         return self.nome
