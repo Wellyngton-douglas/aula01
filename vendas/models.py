@@ -16,4 +16,19 @@ class Venda(models.Model):
     qtd_itens = models.IntegerField(null=False, blank=True, default=0)
 
     def __str__(self):
-        return self.numero_venda + '-' + self.nome
+        return self.nome
+
+class Produto(models.Model):
+    nome = models.CharField(max_length=255, blank=False, null=False)
+    valor = models.DecimalField(max_digits=6, decimal_places=2, blank=False, null=False)
+
+    def __str__(self):
+        return self.nome
+
+class Cliente(models.Model):
+    nome = models.CharField(max_length=255, blank=False, null=False, verbose_name='Nome completo')
+    cpf = models.CharField(max_length=11, blank=False, null=False, verbose_name='CPF')
+    email_cliente = models.EmailField(blank=True, null=True, verbose_name='E-mail')
+
+    def __str__(self):
+        return self.nome
